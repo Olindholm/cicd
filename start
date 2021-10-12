@@ -3,5 +3,8 @@
 # Make sure we're in workdir
 cd $(dirname "$BASH_SOURCE")
 
-# Run
-docker-compose -f docker-compose.yml up --build --force-recreate --no-deps $@
+DOCKER_GROUP_ID=$(getent group docker | cut -d: -f3)
+
+# Build and run
+docker-compose build --no-cache --build-arg DOCKER_GROUP_ID=$DOCKER_GROUP_ID
+docker-compose -f docker-compose.yml up $@
