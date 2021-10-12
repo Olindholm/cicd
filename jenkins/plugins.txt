@@ -1,0 +1,5 @@
+# To enforce english for all browsers
+locale:latest
+
+# Blue Ocean
+blueocean:latest

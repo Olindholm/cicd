@@ -5,7 +5,9 @@ FROM jenkins/jenkins:lts-jdk11
 USER root
 RUN groupadd -g 999 docker
 RUN usermod -aG docker jenkins
-
 USER jenkins
-#COPY plugins.txt /usr/share/jenkins/plugins.txt
-#RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+
+# Preinstall plugins
+# https://github.com/jenkinsci/plugin-installation-manager-tool
+COPY plugins.txt /usr/share/jenkins/plugins.txt
+RUN jenkins-plugin-cli -f /usr/share/jenkins/plugins.txt
