@@ -7,6 +7,10 @@ services:
         ports:
             - 8085:8080
         volumes:
+            # Jenkins home
             - ./jenkins/jenkins_home:/var/jenkins_home
+            # Settings (should be reonly or not?)
+            - ./jenkins/locale.xml:/var/jenkins_home/locale.xml:ro
+            # Docker
             - /var/run/docker.sock:/var/run/docker.sock:ro
             - /usr/bin/docker:/usr/bin/docker:ro
