@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Import library
+dir="$(dirname "$BASH_SOURCE")"
+source "$dir/shlibs/arglib.sh"
+source "$dir/shlibs/dockerlib.sh"
+
+containerid=$(get_containerids jenkins)
+docker_bash $containerid
