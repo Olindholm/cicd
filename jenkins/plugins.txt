@@ -3,3 +3,6 @@ locale:latest
 
 # Blue Ocean
 blueocean:latest
+
+# Docker
+docker-workflow:latest
